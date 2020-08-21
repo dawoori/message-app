@@ -27,7 +27,11 @@
     <div id="app" v-cloak>
       <message-list :items="messages" @delete="deleteMessage"></message-list>
       <form @submit.prevent="addMessage">
-        <textarea v-model="newMessage" placeholder="Leave a message" v-focus></textarea>
+        <textarea
+          v-model="newMessage"
+          placeholder="Leave a message"
+          v-focus
+        ></textarea>
         <div><button :disabled="addDisabled" type="submit">Add</button></div>
       </form>
     </div>
@@ -38,8 +42,12 @@
       import MessageList from "./components/MessageList.js";
       import "./directives/focus.directive.js";
       import "./filters/datetime.filter.js";
+      import lifecycleLogger from "./plugins/lifecycle-logger.plugin.js";
+
+      Vue.use(lifecycleLogger, { beforeMount: false });
 
       let vm = new Vue({
+        name: "MessageApp",
         el: "#app",
         data: {
           messages: [],
@@ -68,8 +76,8 @@
           },
         },
         components: {
-          MessageList
-        }
+          MessageList,
+        },
       });
     </script>
   </body>

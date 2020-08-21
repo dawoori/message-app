@@ -1,4 +1,5 @@
 import MessageListItem from "./MessageListItem.js";
+
 export default {
   name: "MessageList",
   template: `<ul><message-list-item v-for="item in items"
