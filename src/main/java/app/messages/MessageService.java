@@ -10,6 +10,7 @@ public class MessageService {
         this.repository = repository;
     }
 
+    @SecurityCheck
     public Message save(String text) {
         return this.repository.saveMessage(new Message(text));
     }
