@@ -1,9 +1,14 @@
-package app.messages;
+package app.messages.service;
 
+import app.messages.security.SecurityCheck;
+import app.messages.model.Message;
+import app.messages.repository.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Component
 public class MessageService {
@@ -25,7 +30,11 @@ public class MessageService {
     }
 
     private void updateStatistics() {
-        throw new UnsupportedOperationException("This method is not implemented yet");
+//        throw new UnsupportedOperationException("This method is not implemented yet");
     }
 
+    @Transactional(readOnly = true)
+    public List<Message> getMessages() {
+        return repository.getMessages();
+    }
 }

@@ -1,5 +1,6 @@
-package app.messages;
+package app.messages.config;
 
+import app.messages.web.AuditingFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
